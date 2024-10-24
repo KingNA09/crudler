@@ -1,9 +1,11 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-const ModuleItem = (module) => {
-  const handleSelect = () => alert("Item selected");
+const ModuleItem = ({ module, onSelect }) => {
+  // Destructure props correctly here
+  const handleSelect = () => onSelect(module); // Make sure to pass 'module' to onSelect
+
   return (
-    <Pressable key={module.ModuleCode} onPress={handleSelect}>
+    <Pressable onPress={() => onSelect(module)}>
       <View style={styles.item}>
         <Text style={styles.text}>
           {module.ModuleCode} {module.ModuleName}
@@ -20,7 +22,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
   },
   text: {
-    fontSize: 18,
+    fontSize: 16,
   },
 });
 
