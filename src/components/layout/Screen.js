@@ -1,19 +1,21 @@
-import { StyleSheet, Text } from "react-native";
-import Screen from "../layout/Screen";
-export const ModuleListScreen = () => {
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View } from "react-native";
+
+const Screen = ({ children }) => {
   //Initialisations---------------------------
   //State------------------------
   //Handles------------------------
   //Views------------------------
   return (
-    <Screen>
-      <Text>List</Text>
-    </Screen>
+    <View style={styles.screen}>
+      {children}
+      <StatusBar style="auto" />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
@@ -21,4 +23,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ModuleListScreen;
+export default Screen;
