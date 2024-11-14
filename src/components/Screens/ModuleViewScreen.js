@@ -8,7 +8,7 @@ const ModuleViewScreen = () => {
   //Views------------------------
   return (
     <View style={styles.container}>
-      <Text>List</Text>
+      <Text>View</Text>
       <StatusBar style="auto" />
     </View>
   );
