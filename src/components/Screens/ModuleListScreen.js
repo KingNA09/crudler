@@ -4,7 +4,7 @@ import Screen from "../layout/Screen";
 import initialModules from "../../Data/modules";
 import ModuleList from "../entity/modules/ModuleList.js";
 import RenderCount from "../UI/RenderCount.js";
-const ModuleListScreen = () => {
+const ModuleListScreen = ({ navigation }) => {
   //Initialisations--------------------------
   //State------------------------
   const [modules, setModules] = useState(initialModules);
@@ -13,11 +13,15 @@ const ModuleListScreen = () => {
     setModules(modules.filter((item) => item.ModuleID !== module.ModuleID));
   };
 
+  const handleSelect = (module) => {
+    navigation.navigate("ModuleViewScreen", { module });
+  };
+
   //Views------------------------
   return (
     <Screen>
       <RenderCount />
-      <ModuleList modules={modules} onSelect={handleDelete} />
+      <ModuleList modules={modules} onSelect={handleSelect} />
     </Screen>
   );
 };

@@ -8,15 +8,7 @@ const RenderCount = ({
   // Initialisations---------------------------
   const countRef = useRef(0);
   countRef.current += 1;
-
-  // Views------------------------
-  return (
-    <Text style={[styles.count, { backgroundColor, color: fontColor }]}>
-      Number of renders: {countRef.current}
-    </Text>
-  );
 };
-
 const styles = StyleSheet.create({
   container: {
     padding: 5,
