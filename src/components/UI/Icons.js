@@ -1,3 +1,4 @@
+import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const Icons = {
