@@ -1,14 +1,9 @@
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Icons = {};
-
-Icons.Add = () => <MaterialIcons name="add" size={16} />;
-Icons.Delete = () => <MaterialIcons name="delete" size={16} />;
-const Edit = () => <MaterialIcons name="edit" size={16} />;
-
-//Compose--------------------------
-Icons.Add = Add;
-Icons.Delete = Delete;
-Icons.Edit = Edit;
+const Icons = {
+  Add: () => <MaterialIcons name="add" size={16} />,
+  Delete: () => <MaterialIcons name="delete" size={16} />,
+  Edit: () => <MaterialIcons name="edit" size={16} />,
+};
 
 export default Icons;
