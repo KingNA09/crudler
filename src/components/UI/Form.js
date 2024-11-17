@@ -52,7 +52,13 @@ const InputSelect = ({ label, prompt, options, value, onChange }) => {
     const selectedOption = options.find(
       (option) => option.label === selectedLabel
     );
-    onChange(selectedOption.value);
+
+    if (selectedOption) {
+      onChange(selectedOption.value);
+    } else {
+      console.warn(`No matching option found for label: ${selectedLabel}`);
+      onChange(null);
+    }
   };
 
   return (
@@ -62,7 +68,9 @@ const InputSelect = ({ label, prompt, options, value, onChange }) => {
         setSelected={handleChange}
         data={selectListData}
         placeholder={prompt}
-        defaultOption={selectListData.find((item) => item.key === value)}
+        defaultOption={selectListData.find(
+          (item) => item.key === value || selectListData[0]
+        )}
         boxStyles={styles.selectListBoxStyle}
         dropdownStyles={styles.selectListDropdownStyle}
         save="value"

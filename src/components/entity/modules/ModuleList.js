@@ -4,18 +4,15 @@ const ModuleList = ({ modules, onSelect }) => {
   //Initialisations---------------------------
   //State------------------------
   //Handles------------------------
-  const handleSelect = (module) => {
-    onSelect(module);
-  };
   //Views------------------------
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView style={styles.container}>
       {modules.map((module) => {
         return (
           <ModuleItem
             key={module.ModuleCode}
             module={module}
-            onSelect={handleSelect}
+            onSelect={onSelect}
           />
         );
       })}

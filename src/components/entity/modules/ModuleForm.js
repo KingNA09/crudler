@@ -21,13 +21,15 @@ const levels = [
   { value: 4, label: "6 (Final year)" },
   { value: 5, label: "7 (Masters)" },
 ];
-const ModuleForm = ({ onSubmit, onCancel }) => {
-  //Initialisations---------------------------
+
+const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
+  //Initializations---------------------------
   (defaultModule.ModuleID = Math.floor(100000 + Math.random() * 900000)),
     (defaultModule.ModuleImage =
       "https://images.freeimages.com/images/small-previews/cf5/cellphone-1313194.jpg");
   //State------------------------
-  const [module, setModule] = useState(defaultModule);
+  const [module, setModule] = useState(originalModule || defaultModule);
+
   //Handles------------------------
   const handleChange = (field, value) =>
     setModule({ ...module, [field]: value });
@@ -35,9 +37,13 @@ const ModuleForm = ({ onSubmit, onCancel }) => {
   const handleSubmit = () => {
     onSubmit(module);
   };
+
+  //Debugging------------------------
+  console.log("ModuleLevel:", module.ModuleLevel);
+
   //Views------------------------
-  const submitLabel = "Add";
-  const submitIcon = <Icons.Add />;
+  const submitLabel = originalModule ? "Modify" : "Add";
+  const submitIcon = originalModule ? <Icons.Edit /> : <Icons.Add />;
   return (
     <Form
       onSubmit={handleSubmit}

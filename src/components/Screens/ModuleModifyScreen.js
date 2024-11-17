@@ -1,26 +1,24 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-
-const ModuleModifyScreen = () => {
+import Screen from "../layout/Screen";
+import ModuleForm from "../entity/modules/ModuleForm";
+const ModuleModifyScreen = ({ navigation, route }) => {
   //Initialisations---------------------------
+  const { module, onModify } = route.params;
   //State------------------------
   //Handles------------------------
+  const handleCancel = () => navigation.goBack;
   //Views------------------------
   return (
-    <View style={styles.container}>
-      <Text>Modify</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Screen>
+      <ModuleForm
+        originalModule={module}
+        onSubmit={onModify}
+        onCancel={handleCancel}
+      />
+    </Screen>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});
 
 export default ModuleModifyScreen;
