@@ -2,7 +2,7 @@ import { Alert, StyleSheet, Text, View } from "react-native";
 import FullWidthImage from "react-native-fullwidth-image";
 import Icons from "../../UI/Icons.js";
 import { Button, ButtonTray } from "../../UI/Button";
-const ModuleView = ({ module, onDelete,onModify }) => {
+const ModuleView = ({ module, onDelete, onModify }) => {
   //Initialisations---------------------------
   //State------------------------
   //Handles------------------------
@@ -18,7 +18,7 @@ const ModuleView = ({ module, onDelete,onModify }) => {
   return (
     <View style={styles.container}>
       <FullWidthImage
-        source={{ uri: module.ModuleImage }}
+        source={{ uri: module.ModuleImageURL }}
         style={styles.Image}
       />
       <View style={styles.infoTray}>
