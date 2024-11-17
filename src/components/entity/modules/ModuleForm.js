@@ -15,11 +15,11 @@ const defaultModule = {
 };
 
 const levels = [
-  { value: 1, label: "3 (Foundation)" },
-  { value: 2, label: "4 (First year)" },
-  { value: 3, label: "5 (Second year)" },
-  { value: 4, label: "6 (Final year)" },
-  { value: 5, label: "7 (Masters)" },
+  { value: 3, label: "3 (Foundation)" },
+  { value: 4, label: "4 (First year)" },
+  { value: 5, label: "5 (Second year)" },
+  { value: 6, label: "6 (Final year)" },
+  { value: 7, label: "7 (Masters)" },
 ];
 
 const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
@@ -37,9 +37,6 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
   const handleSubmit = () => {
     onSubmit(module);
   };
-
-  //Debugging------------------------
-  console.log("ModuleLevel:", module.ModuleLevel);
 
   //Views------------------------
   const submitLabel = originalModule ? "Modify" : "Add";

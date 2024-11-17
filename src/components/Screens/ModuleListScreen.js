@@ -19,9 +19,9 @@ const ModuleListScreen = ({ navigation }) => {
 
   const handleModify = (updatedModule) =>
     setModules(
-      modules.map((module) => module.ModuleID === updatedModule.ModuleID)
-        ? updatedModule
-        : module
+      modules.map((module) =>
+        module.ModuleID === updatedModule.ModuleID ? updatedModule : module
+      )
     );
 
   const onDelete = (module) => {

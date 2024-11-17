@@ -6,7 +6,7 @@ const ModuleModifyScreen = ({ navigation, route }) => {
   const { module, onModify } = route.params;
   //State------------------------
   //Handles------------------------
-  const handleCancel = () => navigation.goBack;
+  const handleCancel = () => navigation.goBack();
   //Views------------------------
   return (
     <Screen>
