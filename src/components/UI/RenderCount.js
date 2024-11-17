@@ -10,6 +10,7 @@ const RenderCount = ({
   countRef.current += 1;
 
   // Views------------------------
+  /*
   return (
     <View style={[styles.container, { backgroundColor }]}>
       <Text style={[styles.text, { color: fontColor }]}>
@@ -17,6 +18,7 @@ const RenderCount = ({
       </Text>
     </View>
   );
+  */
 };
 
 const styles = StyleSheet.create({

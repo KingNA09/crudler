@@ -25,7 +25,7 @@ const levels = [
 const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
   //Initializations---------------------------
   (defaultModule.ModuleID = Math.floor(100000 + Math.random() * 900000)),
-    (defaultModule.ModuleImage =
+    (defaultModule.ModuleImageURL =
       "https://images.freeimages.com/images/small-previews/cf5/cellphone-1313194.jpg");
   //State------------------------
   const [module, setModule] = useState(originalModule || defaultModule);
@@ -63,9 +63,10 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
       <Form.InputSelect
         label="Module level"
         prompt="Select Module Level..."
-        options={levels}
+        options={[{ value: null, label: "Select Module Level..." }, ...levels]} // Prompt option added
         value={module.ModuleLevel}
         onChange={(value) => handleChange("ModuleLevel", value)}
+        style={styles.inputSelect}
       />
 
       <Form.InputText
