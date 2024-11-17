@@ -45,19 +45,27 @@ const InputText = ({ label, value, onChange }) => {
 const InputSelect = ({ label, prompt, options, value, onChange }) => {
   const selectListData = options.map((option) => ({
     key: option.value,
-
     value: option.label,
   }));
+
+  const handleChange = (selectedLabel) => {
+    const selectedOption = options.find(
+      (option) => option.label === selectedLabel
+    );
+    onChange(selectedOption.value);
+  };
+
   return (
     <View style={styles.item}>
       <Text style={styles.itemLabel}>{label}</Text>
       <SelectList
-        setSelected={onChange}
+        setSelected={handleChange}
         data={selectListData}
         placeholder={prompt}
         defaultOption={selectListData.find((item) => item.key === value)}
         boxStyles={styles.selectListBoxStyle}
         dropdownStyles={styles.selectListDropdownStyle}
+        save="value"
       />
     </View>
   );
