@@ -1,9 +1,9 @@
 const API = {};
 
-API.get = (endpoint) => callFetch(endpoint, 'GET');
-API.post = (endpoint, data) => callFetch(endpoint, 'POST', data);
-API.put = (endpoint, data) => callFetch(endpoint, 'PUT', data);
-API.delete = (endpoint) => callFetch(endpoint, 'DELETE');
+API.get = (endpoint) => callFetch(endpoint, "GET");
+API.post = (endpoint, data) => callFetch(endpoint, "POST", data);
+API.put = (endpoint, data) => callFetch(endpoint, "PUT", data);
+API.delete = (endpoint) => callFetch(endpoint, "DELETE");
 
 export default API;
 
@@ -13,7 +13,7 @@ const callFetch = async (endpoint, method, dataObj = null) => {
   if (dataObj)
     requestObj = {
       ...requestObj,
-      headers: { 'Content-type': 'application/json' },
+      headers: { "Content-type": "application/json" },
       body: JSON.stringify(dataObj),
     };
 
@@ -29,3 +29,5 @@ const callFetch = async (endpoint, method, dataObj = null) => {
     return { isSuccess: false, message: error.message };
   }
 };
+
+5;
