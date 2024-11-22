@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import useLoad from "../../API/useLoad.js";
 import Icons from "../../UI/Icons.js";
@@ -16,7 +16,6 @@ const defaultModule = {
 };
 
 const yearsEndpoint = "https://softwarehub.uk/unibase/api/years";
-
 const staffEndpoint = "https://softwarehub.uk/unibase/api/users/staff";
 
 const levels = [
@@ -35,6 +34,10 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
   const [module, setModule] = useState(originalModule || defaultModule);
   const [years, , isYearsLoading] = useLoad(yearsEndpoint);
   const [leaders, , isleadersLoading] = useLoad(staffEndpoint);
+
+  useEffect(() => {
+    console.log(leaders);
+  }, [leaders]);
 
   //Handles------------------------
   const handleChange = (field, value) =>
@@ -80,7 +83,7 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
       <Form.InputSelect
         label="Module level"
         prompt="Select Module Level..."
-        options={[{ value: null, label: "Select Module Level..." }, ...levels]}
+        options={levels}
         value={module.ModuleLevel}
         onChange={(value) => handleChange("ModuleLevel", value)}
         style={styles.inputSelect}
@@ -89,10 +92,7 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
       <Form.InputSelect
         label="Module cohorts"
         prompt="Select Module Cohorts..."
-        options={[
-          { value: null, label: "Select Module Cohorts..." },
-          ...cohorts,
-        ]}
+        options={cohorts}
         value={module.ModuleYearID}
         onChange={(value) => handleChange("ModuleYearID", value)}
         style={styles.inputSelect}
@@ -101,7 +101,7 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
       <Form.InputSelect
         label="Module Leader"
         prompt="Select Module Leader..."
-        options={[{ value: null, label: "Select Module Leaders..." }, ...staff]}
+        options={staff}
         value={module.ModuleLeaderID}
         onChange={(value) => handleChange("ModuleLeaderID", value)}
         isLoading={isleadersLoading}
