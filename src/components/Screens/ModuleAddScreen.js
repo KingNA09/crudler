@@ -1,4 +1,4 @@
-import Screen from "../layout/Screens.js";
+import Screen from "../layout/Screen.js";
 import { StyleSheet, View } from "react-native";
 import ModuleForm from "../entity/modules/ModuleForm.js";
 const ModuleAddScreen = ({ navigation, route }) => {

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import Screen from "../layout/Screens.js";
+import Screen from "../layout/Screen.js";
 import ModuleForm from "../entity/modules/ModuleForm";
 const ModuleModifyScreen = ({ navigation, route }) => {
   //Initialisations---------------------------

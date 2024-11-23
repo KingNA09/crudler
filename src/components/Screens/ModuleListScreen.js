@@ -1,6 +1,6 @@
 import { StyleSheet, Text } from "react-native";
 import useLoad from "../API/useLoad.js";
-import Screen from "../layout/Screens.js";
+import Screen from "../layout/Screen.js";
 import RenderCount from "../UI/RenderCount.js";
 import Icons from "../UI/Icons.js";
 import { Button, ButtonTray } from "../UI/Button.js";
