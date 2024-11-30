@@ -22,3 +22,5 @@ const ModuleModifyScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({});
 
 export default ModuleModifyScreen;
+
+import Screen from "../../layout/Screen";
